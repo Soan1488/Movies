@@ -1,0 +1,22 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 25px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.active {
+  composes: link;
+  color: rgb(176, 233, 243);
+}

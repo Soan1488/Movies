@@ -9,12 +9,24 @@ export async function getTrendMovies() {
         api_key: KEY,
       },
     });
-    if (response.ok) {
-      throw new Error(`Sorry, we can't found popular films`);
-    }
     return response.data.results;
   } catch (error) {
-    return console.log(error);
+    if (error.response) {
+      // Запрос был сделан, и сервер ответил кодом состояния, который
+      // выходит за пределы 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // Запрос был сделан, но ответ не получен
+      // `error.request`- это экземпляр XMLHttpRequest в браузере и экземпляр
+      // http.ClientRequest в node.js
+      console.log(error.request);
+    } else {
+      // Произошло что-то при настройке запроса, вызвавшее ошибку
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
   }
 }
 
@@ -31,27 +43,50 @@ export async function getMoviesByQuery(query) {
     }
     return response.data.results;
   } catch (error) {
-    return console.log(error);
+    if (error.response) {
+      // Запрос был сделан, и сервер ответил кодом состояния, который
+      // выходит за пределы 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // Запрос был сделан, но ответ не получен
+      // `error.request`- это экземпляр XMLHttpRequest в браузере и экземпляр
+      // http.ClientRequest в node.js
+      console.log(error.request);
+    } else {
+      // Произошло что-то при настройке запроса, вызвавшее ошибку
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
   }
 }
 
-export async function getMovieById(id) {
+export async function getMovieDetails(id) {
   try {
-    const response = await axios(
-      'https://api.themoviedb.org/3//movies/get-movie-details',
-      {
-        params: {
-          api_key: KEY,
-          movie_id: id,
-        },
-      }
-    );
-    if (!response.ok) {
-      throw new Error(`Sorry, we can't found your request ${id} `);
-    }
-    return response.data.results;
+    const response = await axios(`https://api.themoviedb.org/3/movie/${id}`, {
+      params: {
+        api_key: KEY,
+      },
+    });
+    return response.data;
   } catch (error) {
-    return console.log(error);
+    if (error.response) {
+      // Запрос был сделан, и сервер ответил кодом состояния, который
+      // выходит за пределы 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // Запрос был сделан, но ответ не получен
+      // `error.request`- это экземпляр XMLHttpRequest в браузере и экземпляр
+      // http.ClientRequest в node.js
+      console.log(error.request);
+    } else {
+      // Произошло что-то при настройке запроса, вызвавшее ошибку
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
   }
 }
 

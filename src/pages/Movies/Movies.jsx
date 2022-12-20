@@ -1,3 +1,9 @@
 export default function Movies() {
-  return;
+  return (
+    <form>
+      <label>
+        <input type="text" name="search" />
+      </label>
+    </form>
+  );
 }
