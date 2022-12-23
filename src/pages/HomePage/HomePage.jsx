@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getTrendMovies } from 'components/MoviesApi';
+import { getTrendMovies } from 'servises/MoviesApi';
 import { Link } from 'react-router-dom';
 import css from './HomePage.module.css';
 

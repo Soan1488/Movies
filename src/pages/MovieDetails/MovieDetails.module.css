@@ -1,0 +1,85 @@
+.btn {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  top: 20px;
+  left: 30px;
+  background-color: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid rgb(117, 185, 185);
+  color: rgb(176, 223, 223);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(24, 122, 122);
+  color: #fff;
+}
+
+.wrap {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(2, 37, 37);
+}
+
+.imgWrap {
+  margin-right: 20px;
+}
+
+.text {
+  padding-left: 10px;
+}
+
+.subtitle {
+  color: rgb(2, 37, 37);
+}
+
+.subpageWrap {
+  padding-left: 20px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  width: 100px;
+  height: 25px;
+  display: flex;
+}
+
+.item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.link {
+  text-decoration: none;
+  border: 1px solid rgb(54, 170, 170);
+  border-radius: 15px;
+  text-align: center;
+  color: rgb(2, 37, 37);
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+}
+
+.link:hover,
+.link:focus {
+  background-color: rgb(24, 122, 122);
+  color: #fff;
+}
