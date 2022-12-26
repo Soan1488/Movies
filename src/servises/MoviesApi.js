@@ -38,9 +38,6 @@ export async function getMoviesByQuery(query) {
         query,
       },
     });
-    if (!response.ok) {
-      throw new Error(`Sorry, we can't found your request ${query} `);
-    }
     return response.data.results;
   } catch (error) {
     if (error.response) {

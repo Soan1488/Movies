@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navigation from 'components/Navigation/Navigation';
 import Container from 'components/Container/Container';
@@ -9,6 +11,18 @@ export default function Layout() {
     <>
       <header className={css.header}>
         <Container>
+          <ToastContainer
+            position="top-right"
+            autoClose={2500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
           <Navigation />
         </Container>
       </header>
