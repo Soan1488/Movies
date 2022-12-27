@@ -2,14 +2,15 @@ import axios from 'axios';
 
 const KEY = '0edadbafab79c4249d030320f49f37e6';
 
-export async function getTrendMovies() {
+export async function getTrendMovies(page) {
   try {
     const response = await axios('https://api.themoviedb.org/3/movie/popular', {
       params: {
         api_key: KEY,
+        page,
       },
     });
-    return response.data.results;
+    return response;
   } catch (error) {
     if (error.response) {
       // Запрос был сделан, и сервер ответил кодом состояния, который
@@ -30,15 +31,16 @@ export async function getTrendMovies() {
   }
 }
 
-export async function getMoviesByQuery(query) {
+export async function getMoviesByQuery(query, page) {
   try {
     const response = await axios('https://api.themoviedb.org/3/search/movie', {
       params: {
         api_key: KEY,
         query,
+        page,
       },
     });
-    return response.data.results;
+    return response;
   } catch (error) {
     if (error.response) {
       // Запрос был сделан, и сервер ответил кодом состояния, который

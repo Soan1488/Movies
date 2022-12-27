@@ -1,5 +1,8 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 import Navigation from 'components/Navigation/Navigation';
@@ -28,7 +31,22 @@ export default function Layout() {
       </header>
       <main>
         <Container>
-          <Outlet />
+          <Suspense
+            fallback={
+              <ClipLoader
+                size={80}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+                color="#36d7b7"
+                cssOverride={{
+                  margin: '50px auto',
+                  display: 'block',
+                }}
+              />
+            }
+          >
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
       {/* <footer><Footer/></footer> */}
